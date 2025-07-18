@@ -9,7 +9,7 @@ const Home = () => (
     <Container id="landing-page" fluid className="py-5 text-center">
       <Row>
         <Col>
-          <PeopleFill size={100} />
+          <PeopleFill size={75} />
           <h1 className="mt-3"> Multiple Users</h1>
           <h5>
             This address book enables any number of users to register and save their business
@@ -18,7 +18,7 @@ const Home = () => (
         </Col>
 
         <Col>
-          <FileEarmarkTextFill size={100} />
+          <FileEarmarkTextFill size={75} />
           <h1 className="mt-3">Contacts Details</h1>
           <h5>
             For each contact, you can save their name, address, and phone number.
@@ -26,7 +26,7 @@ const Home = () => (
         </Col>
 
         <Col>
-          <Calendar2CheckFill size={100} />
+          <Calendar2CheckFill size={75} />
           <h1 className="mt-3">Timestamped Notes</h1>
           <h5>
             Each time you make contact with a contact, you can write a note that summarizes the conversation.
