@@ -41,5 +41,4 @@ const ListPage = async () => {
     </main>
   );
 };
-
 export default ListPage;
