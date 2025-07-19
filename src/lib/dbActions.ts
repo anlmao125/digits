@@ -31,6 +31,19 @@ export async function addStuff(stuff: { name: string; quantity: number; owner: s
   redirect('/list');
 }
 
+export async function addContact(contact: {
+  firstName: string;
+  lastName: string;
+  address: string;
+  image: string;
+  description: string;
+  owner: string;
+}) {
+  return prisma.contact.create({
+    data: contact,
+  });
+}
+
 /**
  * Edits an existing stuff in the database.
  * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
@@ -48,6 +61,21 @@ export async function editStuff(stuff: Stuff) {
   });
   // After updating, redirect to the list page
   redirect('/list');
+}
+
+export async function editContact(contact: {
+  id: number;
+  firstName: string;
+  lastName: string;
+  address: string;
+  image: string;
+  description: string;
+  owner: string;
+}) {
+  return prisma.contact.update({
+    where: { id: contact.id },
+    data: contact,
+  });
 }
 
 /**

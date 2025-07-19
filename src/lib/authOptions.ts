@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 import { compare } from 'bcrypt';
-import { type NextAuthOptions } from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from '@/lib/prisma';
 
@@ -53,8 +53,13 @@ const authOptions: NextAuthOptions = {
     //   newUser: '/auth/new-user'
   },
   callbacks: {
-    session: ({ session, token }) => {
-      // console.log('Session Callback', { session, token })
+    async session({
+      session,
+      token,
+    }: {
+      session: any;
+      token: any;
+    }) {
       return {
         ...session,
         user: {
@@ -64,10 +69,15 @@ const authOptions: NextAuthOptions = {
         },
       };
     },
-    jwt: ({ token, user }) => {
-      // console.log('JWT Callback', { token, user })
+    jwt({
+      token,
+      user,
+    }: {
+      token: any;
+      user?: any;
+    }) {
       if (user) {
-        const u = user as unknown as any;
+        const u = user as any;
         return {
           ...token,
           id: u.id,
@@ -77,7 +87,6 @@ const authOptions: NextAuthOptions = {
       return token;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default authOptions;
