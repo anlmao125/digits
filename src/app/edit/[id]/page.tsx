@@ -1,33 +1,31 @@
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
-import { Stuff } from '@prisma/client';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
-import EditStuffForm from '@/components/EditStuffForm';
+import EditContactForm from '@/components/EditContactForm';
+import { Contact } from '@/lib/validationSchemas';
 
-export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {
-  // Protect the page, only logged in users can access it.
+export default async function EditContactPage({ params }: { params: { id: string | string[] } }) {
   const session = await getServerSession(authOptions);
-  loggedInProtectedPage(
-    session as {
-      user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
-    } | null,
-  );
+  loggedInProtectedPage(session);
+
   const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  // console.log(id);
-  const stuff: Stuff | null = await prisma.stuff.findUnique({
+  if (Number.isNaN(id)) {
+    return notFound();
+  }
+
+  const contact = await prisma.contact.findUnique({
     where: { id },
   });
-  // console.log(stuff);
-  if (!stuff) {
+
+  if (!contact) {
     return notFound();
   }
 
   return (
     <main>
-      <EditStuffForm stuff={stuff} />
+      <EditContactForm contact={contact as Contact} />
     </main>
   );
 }
