@@ -23,7 +23,7 @@ const ContactCard = ({ contact }: Props) => (
       <Card.Text>{contact.description}</Card.Text>
     </Card.Body>
     <Card.Footer>
-      <Link href={`/edit-contact/${contact.id}`}>Edit</Link>
+      <Link href={`/edit/${contact.id}`}>Edit</Link>
     </Card.Footer>
   </Card>
 );
