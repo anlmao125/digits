@@ -133,30 +133,12 @@ To check code quality with ESLint:
 ```bash
 npm run lint
 ```
-
 ---
 
-## 🌐 Publishing with GitHub Pages
+## 👤 Author
 
-1. Commit your `index.md` and screenshots:
-
-```bash
-git add index.md doc/
-git commit -m "Add GitHub Pages home with screenshots"
-git push origin main
-```
-
-2. On GitHub:
-
-   * Go to **Settings > Pages**
-   * Select **main branch** and click **Save**
-   * Click **Choose a theme** and pick any
-   * Your site will be available at: `https://<your-username>.github.io/<your-repo>/`
-
----
-
-This project demonstrates full-stack development with modern tooling, clean structure, and role-based functionality.
+**Anlon Mao**
+ICS 314 - Summer 2025
+University of Hawaiʻi at Mānoa
 
 ```
-
----
