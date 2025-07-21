@@ -1,142 +1,99 @@
-<img src="doc/landing.png">
+<!docTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digits App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    code, pre {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Digits App</h1>
 
-# Digits App (Next.js 14)
+  <img src="docs/landing.png" alt="Landing Page Screenshot" />
 
-This is a modern web application for managing contact information using the Next.js 14 App Router framework.
+  <p>
+    <strong>Digits</strong> is a Next.js 14 application built for managing user contacts and notes.
+    It demonstrates:
+  </p>
 
-It demonstrates:
+  <ul>
+    <li>Next.js App Router</li>
+    <li>PostgreSQL with Prisma</li>
+    <li>NextAuth.js for authentication and roles</li>
+    <li>Form handling with React Hook Form and validation via Yup</li>
+    <li>Bootstrap 5 UI using React-Bootstrap</li>
+    <li>ESLint integration</li>
+  </ul>
 
-- A clean directory layout using `src/` as recommended by [Next.js](https://nextjs.org/docs/getting-started/project-structure)
-- PostgreSQL with Prisma ORM
-- [Bootstrap 5 React](https://react-bootstrap.github.io/) for UI components
-- [React Hook Form](https://react-hook-form.com) and [Yup](https://github.com/jquense/yup) for validated forms
-- User authentication and role-based access control via [NextAuth.js](https://next-auth.js.org/)
-- ESLint configuration following Next.js and Airbnb standards
+  <h2>Installation</h2>
 
----
+  <ol>
+    <li>Install PostgreSQL and create a database:
+      <pre><code>createdb digits</code></pre>
+    </li>
+    <li>Clone this repo:
+      <pre><code>git clone https://github.com/anlmao125/digits.git</code></pre>
+    </li>
+    <li>Install dependencies:
+      <pre><code>npm install</code></pre>
+    </li>
+    <li>Create a <code>.env</code> file from <code>sample.env</code>, and set <code>DATABASE_URL</code></li>
+    <li>Push Prisma schema:
+      <pre><code>npx prisma migrate dev</code></pre>
+    </li>
+    <li>Seed the database:
+      <pre><code>npx prisma db seed</code></pre>
+    </li>
+    <li>Run the development server:
+      <pre><code>npm run dev</code></pre>
+    </li>
+  </ol>
 
-## 🚀 Installation
+  <h2>Pages Overview</h2>
 
-1. **Install PostgreSQL** and create a database:
+  <h3>Landing Page</h3>
+  <img src="docs/landing.png" alt="Landing Page" />
 
-```bash
-createdb digits
-````
+  <h3>Login Page</h3>
+  <img src="docs/signin.png" alt="Sign In" />
 
-2. **Clone your repo** from GitHub:
+  <h3>Register Page</h3>
+  <img src="docs/signup.png" alt="Sign Up" />
 
-```bash
-git clone git@github.com:<your-username>/<your-repo>.git
-cd <your-repo>
-```
+  <h3>List Contacts</h3>
+  <img src="docs/list-contacts.png" alt="List Contacts" />
 
-3. **Install dependencies**:
+  <h3>Add Contact</h3>
+  <img src="docs/add-contact.png" alt="Add Contact" />
 
-```bash
-npm install
-```
+  <h3>Edit Contact</h3>
+  <img src="docs/edit-contact.png" alt="Edit Contact" />
 
-4. **Set up environment variables**:
+  <h3>Admin Dashboard</h3>
+  <img src="docs/admin.png" alt="Admin Page" />
 
-Copy `.env.sample` to `.env` and edit the `DATABASE_URL` to match your local Postgres setup.
+  <p>Admin users can view all contacts and notes in the system. Regular users can only view and edit their own.</p>
 
-5. **Push Prisma schema to database**:
-
-```bash
-npx prisma migrate dev
-```
-
-6. **Seed the database**:
-
-```bash
-npx prisma db seed
-```
-
----
-
-## ▶️ Running the App
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Go to: [http://localhost:3000](http://localhost:3000)
-
----
-
-## 🖼️ Walkthrough
-
-### Landing Page
-
-<img src="doc/landing.png">
-
-Landing page introduces the app and allows users to sign in or register.
-
----
-
-### Sign In Page
-
-<img src="doc/signin.png">
-
-Users can sign in using credentials defined in `settings.development.json` or by creating an account.
-
----
-
-### Add Contact Page
-
-<img src="doc/add-contact.png">
-
-Users can add contacts with a name, description, address, and image.
-
----
-
-### List Contacts Page
-
-<img src="doc/list-contacts.png">
-
-Shows the logged-in user’s saved contacts. Includes dynamic routing and edit/delete functionality.
-
----
-
-### Admin Page
-
-<img src="doc/admin-page.png">
-
-Only visible to users with the `ADMIN` role. Lists all contacts created by any user and all user roles.
-
----
-
-## 🗃️ Directory Structure
-
-```txt
-src/
-  app/
-    add/               # Add Contact page
-    list/              # List Contacts page
-    admin/             # Admin Dashboard
-    auth/              # Signin, Signout, Signup
-  components/          # Shared UI components
-  lib/                 # Utility and database functions
-  prisma/              # Prisma schema and seed
-  config/              # Default user/contact seed data
-  doc/                 # Screenshots for GitHub Pages
-```
-
----
-
-## ✅ Linting
-
-To check code quality with ESLint:
-
-```bash
-npm run lint
-```
----
-
-## 👤 Author
-
-**Anlon Mao**
-ICS 314 - Summer 2025
-University of Hawaiʻi at Mānoa
+  <h2>License</h2>
+  <p>This project is for educational purposes.</p>
+</body>
+</html>
