@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth/next';
-import { type Session } from 'next-auth'; // Make sure this is imported
+import { type Session } from 'next-auth';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
