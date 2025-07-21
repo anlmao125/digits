@@ -140,5 +140,3 @@ npm run lint
 **Anlon Mao**
 ICS 314 - Summer 2025
 University of Hawaiʻi at Mānoa
-
-```
