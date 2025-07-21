@@ -20,6 +20,7 @@ const ListPage = async () => {
 
   const contacts = await prisma.contact.findMany({
     where: { owner: currentUser },
+    include: { notes: true },
   });
 
   return (
