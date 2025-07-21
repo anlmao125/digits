@@ -1,4 +1,4 @@
-<!docTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,18 +10,34 @@
       max-width: 900px;
       margin: auto;
       padding: 20px;
-      line-height: 1.6;
+      line-height: 1.7;
+      background-color: #fafafa;
+      color: #333;
     }
     img {
       max-width: 100%;
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      margin-bottom: 20px;
+      margin: 15px 0;
     }
     code, pre {
-      background-color: #f4f4f4;
-      padding: 2px 4px;
-      border-radius: 4px;
+      background-color: #f0f0f0;
+      padding: 4px 6px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 10px;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ol {
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -31,39 +47,63 @@
   <img src="docs/landing.png" alt="Landing Page Screenshot" />
 
   <p>
-    <strong>Digits</strong> is a Next.js 14 application built for managing user contacts and notes.
-    It demonstrates:
+    <strong>Digits</strong> is a contact and note management web application built with <strong>Next.js 14</strong>.
+    It showcases modern full-stack technologies and follows best practices for development with TypeScript, authentication, and database interaction.
   </p>
 
+  <h2>Key Technologies</h2>
   <ul>
-    <li>Next.js App Router</li>
-    <li>PostgreSQL with Prisma</li>
-    <li>NextAuth.js for authentication and roles</li>
-    <li>Form handling with React Hook Form and validation via Yup</li>
-    <li>Bootstrap 5 UI using React-Bootstrap</li>
-    <li>ESLint integration</li>
+    <li><strong>Next.js 14</strong> with App Router for page routing and layout</li>
+    <li><strong>PostgreSQL</strong> as the database, managed using <strong>Prisma ORM</strong></li>
+    <li><strong>NextAuth.js</strong> for secure authentication and user role support</li>
+    <li><strong>React Hook Form</strong> for efficient and dynamic form management</li>
+    <li><strong>Yup</strong> for schema-based form validation</li>
+    <li><strong>Bootstrap 5</strong> via <code>react-bootstrap</code> for a clean and responsive UI</li>
+    <li><strong>ESLint</strong> for code quality enforcement</li>
   </ul>
 
-  <h2>Installation</h2>
+  <h2>Getting Started</h2>
 
   <ol>
-    <li>Install PostgreSQL and create a database:
+    <li>
+      <strong>Install PostgreSQL</strong><br>
+      Ensure PostgreSQL is installed on your machine. Then, create a new database:
       <pre><code>createdb digits</code></pre>
     </li>
-    <li>Clone this repo:
+
+    <li>
+      <strong>Clone this repository</strong><br>
+      Clone the Digits repository to your local machine:
       <pre><code>git clone https://github.com/anlmao125/digits.git</code></pre>
     </li>
-    <li>Install dependencies:
+
+    <li>
+      <strong>Install dependencies</strong><br>
+      Navigate into the cloned directory and run:
       <pre><code>npm install</code></pre>
     </li>
-    <li>Create a <code>.env</code> file from <code>sample.env</code>, and set <code>DATABASE_URL</code></li>
-    <li>Push Prisma schema:
+
+    <li>
+      <strong>Set up environment variables</strong><br>
+      Copy <code>sample.env</code> to <code>.env</code> and update the <code>DATABASE_URL</code> to point to your local PostgreSQL database:
+      <pre><code>cp sample.env .env</code></pre>
+    </li>
+
+    <li>
+      <strong>Push Prisma schema and generate client</strong><br>
+      This command will apply database migrations and generate Prisma client:
       <pre><code>npx prisma migrate dev</code></pre>
     </li>
-    <li>Seed the database:
+
+    <li>
+      <strong>Seed the database</strong><br>
+      Populate your database with default users and data:
       <pre><code>npx prisma db seed</code></pre>
     </li>
-    <li>Run the development server:
+
+    <li>
+      <strong>Run the development server</strong><br>
+      Start the app locally:
       <pre><code>npm run dev</code></pre>
     </li>
   </ol>
@@ -72,28 +112,39 @@
 
   <h3>Landing Page</h3>
   <img src="docs/landing.png" alt="Landing Page" />
+  <p>The main entry point to the app. Redirects to login or dashboard depending on auth state.</p>
 
   <h3>Login Page</h3>
   <img src="docs/signin.png" alt="Sign In" />
+  <p>Users can log in with their credentials or be redirected to register.</p>
 
   <h3>Register Page</h3>
   <img src="docs/signup.png" alt="Sign Up" />
+  <p>Allows new users to create an account.</p>
 
   <h3>List Contacts</h3>
   <img src="docs/list-contacts.png" alt="List Contacts" />
+  <p>Displays a list of the user’s own contacts. Includes edit/delete options.</p>
 
   <h3>Add Contact</h3>
   <img src="docs/add-contact.png" alt="Add Contact" />
+  <p>Form with validation to create a new contact entry (name, phone, email, notes).</p>
 
   <h3>Edit Contact</h3>
   <img src="docs/edit-contact.png" alt="Edit Contact" />
+  <p>Allows users to modify an existing contact they created.</p>
 
   <h3>Admin Dashboard</h3>
   <img src="docs/admin.png" alt="Admin Page" />
+  <p>
+    Admins can view all users' contacts across the system. Restricted to accounts with the <code>ADMIN</code> role.
+  </p>
 
-  <p>Admin users can view all contacts and notes in the system. Regular users can only view and edit their own.</p>
+  <h2>ESLint</h2>
+  <p>Run the following to check for code quality and style violations:</p>
+  <pre><code>npm run lint</code></pre>
 
   <h2>License</h2>
-  <p>This project is for educational purposes.</p>
+  <p>This project is developed for educational purposes under the ICS 314 Software Engineering course.</p>
 </body>
 </html>
