@@ -16,6 +16,14 @@ export const AddContactSchema = Yup.object({
   owner: Yup.string().required(),
 });
 
+export const AddNoteSchema = Yup.object({
+  note: Yup.string().required(),
+  contactId: Yup.number().required(),
+  owner: Yup.string().required(),
+});
+
+export type NoteFormData = Yup.InferType<typeof AddNoteSchema>;
+
 export const EditContactSchema = AddContactSchema.shape({
   id: Yup.number().required(),
   owner: Yup.string().required(),
